@@ -4,11 +4,17 @@ const db = require("../config/db.config");
  * Get rent info by user id
  */
 const getUserRentInfo = async (req, res) => {
-  const { id } = req.params;
-  db.query("SELECT * FROM rentals WHERE user_id = ?", [id], (err, results) => {
-    if (err) return res.status(500).json(err);
-    res.json(results);
-  });
+  try {
+    let vehicles = await db.query("SELECT * from rentals");
+
+    res.status(200).send(vehicles[0]);
+  } catch (error) {
+    return res.status(500).send({
+      success: false,
+      msg: "Internal Server Error",
+      error,
+    });
+  }
 };
 
 /**
@@ -17,14 +23,23 @@ const getUserRentInfo = async (req, res) => {
 const placeRent = async (req, res) => {
   const { user_id, vehicle_id, start_date, end_date } = req.body;
 
-  db.query(
-    "INSERT INTO rentals (user_id, vehicle_id, start_date, end_date) VALUES (?, ?, ?, ?)",
-    [user_id, vehicle_id, start_date, end_date],
-    (err, result) => {
-      if (err) return res.status(500).json(err);
-      res.json({ message: "Rental booked successfully" });
-    }
-  );
+  try {
+    let data = await db.query(
+      "INSERT INTO rentals (user_id, vehicle_id, start_date, end_date) VALUES (?, ?, ?, ?)",
+      [user_id, vehicle_id, start_date, end_date]
+    );
+
+    return res.status(201).send({
+      success: true,
+      msg: "New Rent Created Success",
+    });
+  } catch (error) {
+    return res.status(500).send({
+      success: false,
+      msg: "Internal Server Error",
+      error,
+    });
+  }
 };
 
 module.exports = { getUserRentInfo, placeRent };
