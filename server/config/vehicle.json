@@ -1,0 +1,11 @@
+[{"id":1, "name":"Toyota Corolla", "type":"Sedan", "rent_per_day":40.0, "available":1},
+ {"id":2, "name":"Honda Civic", "type":"Sedan", "rent_per_day":45.0, "available":1},
+ {"id":3, "name":"Ford Mustang", "type":"Sports", "rent_per_day":120.0, "available":1},
+ {"id":4, "name":"Tesla Model 3", "type":"Electric", "rent_per_day":90.0, "available":1},
+ {"id":5, "name":"Jeep Wrangler", "type":"SUV", "rent_per_day":80.0, "available":1},
+ {"id":6, "name":"BMW X5", "type":"SUV", "rent_per_day":110.0, "available":1},
+ {"id":7, "name":"Mercedes-Benz C-Class", "type":"Luxury", "rent_per_day":150.0, "available":1},
+ {"id":8, "name":"Nissan Leaf", "type":"Electric", "rent_per_day":50.0, "available":1},
+ {"id":9, "name":"Chevrolet Camaro", "type":"Sports", "rent_per_day":130.0, "available":1},
+ {"id":10, "name":"Hyundai Elantra", "type":"Sedan", "rent_per_day":35.0, "available":1},
+ {"id":11, "name":"Test", "type":"Sedan", "rent_per_day":200.0, "available":1}]
